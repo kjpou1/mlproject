@@ -6,7 +6,6 @@ This folder contains all the notebooks, logs, and outputs for the project.
 - **notebooks/**
   - `1_EDA.ipynb`: Exploratory Data Analysis notebook.
   - `2_Model_Training.ipynb`: Notebook for training models.
-- **catboost_logs/**: Contains logs and metrics from CatBoost training.
 - **data/**:
   - `raw/`: Raw datasets.
   - `processed/`: Processed datasets for modeling.
