@@ -4,8 +4,6 @@ import sys
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 
-from exception import CustomException
-
 # Create a timestamped log file
 LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 
@@ -43,12 +41,7 @@ console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
 # Test log messages (optional for debugging)
-# if __name__ == "__main__":
-#     logger.info("Hic est nuntius INFO.")
-#     logger.debug("HHic est nuntius DEBUG .")
-#     logger.error("Hic est nuntius ERROR.")
-#     try:
-#         a = 1 / 0
-#     except Exception as e:
-#         logging.info("Divide by Zero")
-#         raise CustomException(e, sys) from e
+if __name__ == "__main__":
+    logger.info("Hic est nuntius INFO.")
+    logger.debug("HHic est nuntius DEBUG .")
+    logger.error("Hic est nuntius ERROR.")
