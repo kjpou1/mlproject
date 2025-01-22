@@ -1,6 +1,3 @@
-Here's a detailed and structured README file for your machine learning project template:
-
-```markdown
 # Machine Learning Project Template
 
 A robust and modular template to streamline the development, training, evaluation, and deployment of machine learning projects.
