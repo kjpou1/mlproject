@@ -88,8 +88,8 @@ class DataTransformation:
             )
 
             # Log the preprocessing setup
-            logging.info(f"Categorical columns: {categorical_columns}")
-            logging.info(f"Numerical columns: {numerical_columns}")
+            logging.info("Categorical columns: %s", categorical_columns)
+            logging.info("Numerical columns: %s", numerical_columns)
 
             # Combine pipelines for numerical and categorical features
             preprocessor = ColumnTransformer(
@@ -102,8 +102,7 @@ class DataTransformation:
             return preprocessor
 
         except Exception as e:
-            logging.error("Error in get_data_transformer_object: %s", e)
-            # Handle exceptions with a custom error class
+            # Raise a custom exception with the error details
             raise CustomException(e, sys) from e
 
     def initiate_data_transformation(self, train_path: str, test_path: str):
@@ -122,15 +121,14 @@ class DataTransformation:
             train_df = pd.read_csv(train_path)
             test_df = pd.read_csv(test_path)
 
-            logging.info("Read train and test data completed")
+            logging.info("Read train and test data completed.")
 
             # Get the preprocessing object
-            logging.info("Obtaining preprocessing object")
+            logging.info("Obtaining preprocessing object.")
             preprocessing_obj = self.get_data_transformer_object()
 
             # Define target column and input features
             target_column_name = "math_score"
-            numerical_columns = ["writing_score", "reading_score"]
 
             # Split input features and target variable for train and test datasets
             input_feature_train_df = train_df.drop(columns=[target_column_name], axis=1)
@@ -139,9 +137,7 @@ class DataTransformation:
             input_feature_test_df = test_df.drop(columns=[target_column_name], axis=1)
             target_feature_test_df = test_df[target_column_name]
 
-            logging.info(
-                "Applying preprocessing object on training dataframe and testing dataframe."
-            )
+            logging.info("Applying preprocessing object on training and testing data.")
 
             # Transform input features using the preprocessing pipeline
             input_feature_train_arr = preprocessing_obj.fit_transform(
@@ -155,7 +151,7 @@ class DataTransformation:
             ]
             test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
 
-            logging.info("Saved preprocessing object.")
+            logging.info("Preprocessing completed and object saved.")
 
             # Save the preprocessor object
             save_object(
@@ -170,8 +166,7 @@ class DataTransformation:
                 self.data_transformation_config.preprocessor_obj_file_path,
             )
         except Exception as e:
-            logging.error("Error in get_data_transformer_object: %s", e)
-            # Handle exceptions with a custom error class
+            # Raise a custom exception with the error details
             raise CustomException(e, sys) from e
 
 
