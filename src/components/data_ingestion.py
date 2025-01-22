@@ -106,10 +106,10 @@ class DataIngestion:
             raise CustomException(e, sys) from e
 
 
-if __name__ == "__main__":
-    """
-    Entry point for the script.
-    Initializes the DataIngestion class and executes the data ingestion process.
-    """
-    obj = DataIngestion()
-    obj.initiate_data_ingestion()
+# if __name__ == "__main__":
+#     """
+#     Entry point for the script.
+#     Initializes the DataIngestion class and executes the data ingestion process.
+#     """
+#     obj = DataIngestion()
+#     obj.initiate_data_ingestion()
