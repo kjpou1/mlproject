@@ -37,3 +37,12 @@ def save_object(file_path: str, obj: object) -> None:
     except Exception as e:
         # If an error occurs, raise a CustomException with the error details and system information
         raise CustomException(e, sys) from e
+
+
+def load_object(file_path):
+    try:
+        with open(file_path, "rb") as file_obj:
+            return dill.load(file_obj)
+
+    except Exception as e:
+        raise CustomException(e, sys) from e
